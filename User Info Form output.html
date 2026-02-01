@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://127.0.0.1:3000/project -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./User Info Form output_files/___vscode_livepreview_injected_script"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info Form</title>
+    <link href="./User Info Form output_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./User Info Form output_files/userinfo.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">User Information </h1>
+        <form id="userForm" class="mx-auto">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required="">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required="">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required="">
+            </div>
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" id="mobile" name="mobile" pattern="[0-9]{10}" required="">
+            </div>
+            <div class="mb-3 ">
+                <label class="form-label">Favorite Cricketer</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cricketer" value="Virat Kohli" id="cricketer1">
+                    <label class="form-check-label" for="cricketer1">Virat Kohli</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cricketer" value="MS Dhoni" id="cricketer2">
+                    <label class="form-check-label" for="cricketer2">MS Dhoni</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cricketer" value="Rohit Sharma" id="cricketer3">
+                    <label class="form-check-label" for="cricketer3">Rohit Sharma</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cricketer" value="Sachin Tendulkar" id="cricketer4">
+                    <label class="form-check-label" for="cricketer4">Sachin Tendulkar</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Favorite Movie Star</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="movieStar" value="Allu Arjun" id="movieStar1">
+                    <label class="form-check-label" for="movieStar1">Allu Arjun</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="movieStar" value="Vijay Deverakonda" id="movieStar2">
+                    <label class="form-check-label" for="movieStar2">Vijay Deverakonda</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="movieStar" value="Mahesh Babu" id="movieStar3">
+                    <label class="form-check-label" for="movieStar3">Mahesh Babu</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="movieStar" value="NTR" id="movieStar4">
+                    <label class="form-check-label" for="movieStar4">NTR</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="movieStar" value="Nani" id="movieStar5">
+                    <label class="form-check-label" for="movieStar5">Nani</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+        <div id="formResult" class="mt-4 text-center"></div>
+    </div>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const mobile = document.getElementById('mobile').value;
+            const cricketer = document.querySelector('input[name="cricketer"]:checked')?.value || 'None';
+            const movieStar = document.querySelector('input[name="movieStar"]:checked')?.value || 'None';
+            document.getElementById('formResult').innerHTML =
+                `<div class='alert alert-success'>Thank you, <b>${name}</b>!<br>Your details have been submitted.<br><b>Favorite Cricketer:</b> ${cricketer}<br><b>Favorite Movie Star:</b> ${movieStar}</div>`;
+            this.reset();
+        });
+    </script>
+
+</body></html>
